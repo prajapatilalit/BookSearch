@@ -21,8 +21,9 @@
   padding: 35px;
   width: 50%;
   color: rgb(75, 75, 75);
-  font-size: 15px;
+  font-size: 13px;
   font-weight: 600;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
 }
 .book_search form input {
   padding: 5px;

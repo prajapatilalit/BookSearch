@@ -1,33 +1,36 @@
 import React, { useEffect, useState } from "react";
+import axios from "axios";
 
 const BookSearch = () => {
   const [searchText, setSearchText] = useState("");
-  const [debouncedText, setDebouncedText] = useState(searchText);
+  const [isbn, setIsbn] = useState("");
 
-  useEffect(() => {
-    const timeoutId = setTimeout(() => {
-      setDebouncedText(searchText);
-    }, 2000);
-
-    return () => {
-      clearTimeout(timeoutId);
-    };
-  }, [searchText]);
-
-  useEffect(() => {
-    const handleSearch = () => {
-      setSearchText(debouncedText);
-    };
-    if (debouncedText) {
-      handleSearch();
-    }
-  }, [debouncedText]);
-
-  console.log(searchText);
-  const searchSubmit = (e) => {
-    e.preventDefault();
+  const handleSearch = (e) => {
+    setSearchText(e.target.value);
   };
 
+  const baseUrl = "https://lspl-info4you.glitch.me/";
+  const apiKey = "Fo8UprJg2kQyDscaJjNKon5UF";
+
+  const searchSubmit = (e) => {
+    e.preventDefault();
+    const getBookDetails = async () => {
+      try {
+        const res = await axios.get(
+          `${baseUrl}/books/${isbn}/details?key=${apiKey}`
+        );
+        const data = await res.json();
+        console.log(data);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    getBookDetails();
+  };
+
+  useEffect(() => {
+    setIsbn(searchText);
+  }, [searchText]);
   return (
     <div className="container">
       <div className="book_search">
@@ -37,7 +40,7 @@ const BookSearch = () => {
           <input
             type="text"
             placeholder="Common passwords..."
-            onChange={(e) => setSearchText(e.target.value)}
+            onChange={handleSearch}
             value={searchText}
           />
           <button>Search</button>
