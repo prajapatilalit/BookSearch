@@ -1,22 +1,23 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import axios from "axios";
 
 const BookSearch = () => {
   const [searchText, setSearchText] = useState("");
+  const [isbn, setIsbn] = useState("");
 
   const handleSearch = (e) => {
     setSearchText(e.target.value);
   };
 
-  const baseUrl = "https://lspl-bookie.glitch.me/";
+  const baseUrl = "https://lspl-info4you.glitch.me/";
   const apiKey = "Fo8UprJg2kQyDscaJjNKon5UF";
 
   const searchSubmit = (e) => {
     e.preventDefault();
     const getBookDetails = async () => {
       try {
-        const res = axios.get(
-          `${baseUrl}/books/${searchText}/details?key=${apiKey}`
+        const res = await axios.get(
+          `${baseUrl}/books/${isbn}/details?key=${apiKey}`
         );
         const data = await res.json();
         console.log(data);
@@ -27,7 +28,9 @@ const BookSearch = () => {
     getBookDetails();
   };
 
-  // useEffect(() => {}, [searchText]);
+  useEffect(() => {
+    setIsbn(searchText);
+  }, [searchText]);
   return (
     <div className="container">
       <div className="book_search">
