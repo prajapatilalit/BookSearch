@@ -1,0 +1,61 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,200;0,300;0,600;1,400&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Roboto Mono, "sens-serif";
+}
+.container {
+  position: relative;
+}
+
+.book_search {
+  position: absolute;
+  width: max-content;
+  top: 20%;
+  left: 50%;
+  transform: translate(-50%, 20%);
+  border: 1px solid black;
+  border-radius: 3px;
+  padding: 35px;
+  width: 50%;
+}
+.book_search form input {
+  padding: 5px;
+  border-radius: 5px;
+  font-size: 15px;
+  margin: 0px 5px 8px 0px;
+}
+.book_search form button {
+  padding: 5px;
+  border-radius: 5px;
+  font-size: 15px;
+  margin-left: 0px 0px 8px 3px;
+}
+
+.book_search .table {
+  display: flex;
+  border: 1px solid black;
+
+  margin-top: 10px;
+}
+
+.book_search .table .table_col1 {
+  border-right: 1px solid black;
+  text-align: center;
+}
+
+.book_search .table .table_col1 p {
+  border-bottom: 1px solid black;
+  padding: 5px;
+}
+
+.book_search .table .table_col2 {
+  width: 100%;
+}
+
+.book_search .table .table_col2 p {
+  border-bottom: 1px solid black;
+  padding: 5px 5px 5px 8px;
+}
