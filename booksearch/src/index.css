@@ -20,24 +20,24 @@
   border-radius: 3px;
   padding: 35px;
   width: 50%;
+  color: rgb(75, 75, 75);
+  font-size: 15px;
+  font-weight: 600;
 }
 .book_search form input {
   padding: 5px;
   border-radius: 5px;
-  font-size: 15px;
   margin: 0px 5px 8px 0px;
 }
 .book_search form button {
   padding: 5px;
   border-radius: 5px;
-  font-size: 15px;
   margin-left: 0px 0px 8px 3px;
 }
 
 .book_search .table {
   display: flex;
   border: 1px solid black;
-
   margin-top: 10px;
 }
 
